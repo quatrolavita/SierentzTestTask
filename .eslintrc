@@ -1,0 +1,49 @@
+{
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "src"]
+    }
+  }
+  },
+  "extends": [
+    "react-app",
+    "airbnb",
+    "prettier"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "semi": 0,
+    "prettier/prettier": [
+      "error", {
+        "semi": true
+      }
+    ],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"]
+  },
+  "overrides": [
+    {
+      "files": ["./src/**/**/reducer.ts"],
+      "rules": {
+        "default-param-last": "off"
+      }
+    }
+  ]
+}
