@@ -1,29 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 // components
 import TableComponent from 'feature/Table/Table';
-import RenderInWindow from '../feature/RenderInWindow/RenderInWindow';
-import PopupTable from '../feature/PopupTable/PopupTable';
 
 function Index() {
-    const [openPopup, setPopupOpen] = useState<boolean>(false);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleCellClick = () => {
-        setPopupOpen(true);
-    };
-    const handlePopupClose = () => {
-        setPopupOpen(false);
+        navigate('popup', { state: { background: location } });
     };
 
-    return (
-        <>
-            <TableComponent handleCellClick={handleCellClick} />
-            {openPopup && (
-                <RenderInWindow>
-                    <PopupTable handlePopupClose={handlePopupClose} />
-                </RenderInWindow>
-            )}
-        </>
-    );
+    return <TableComponent handleCellClick={handleCellClick} />;
 }
 export default Index;
