@@ -1,9 +1,8 @@
 import React from 'react';
 
-import Index from 'pages/Index';
+// router
+import Navigation from 'routs/Routers';
 
-function App() {
-    return <Index />;
+export default function App() {
+    return <Navigation />;
 }
-
-export default App;
